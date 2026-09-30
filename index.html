@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<title>Canti</title>
+</head>
+<body>
+<header><div><h1>Canti</h1><p>Il tuo archivio musicale</p></div><button id="addBtn" aria-label="Aggiungi canto">＋</button></header>
+<main>
+<div class="toolbar"><input id="search" type="search" placeholder="Cerca un canto…" aria-label="Cerca"><button id="importBtn">Importa file</button><input id="fileInput" type="file" accept=".crd,.txt,.pdf" multiple hidden></div>
+<section id="empty" class="empty"><div class="icon">♫</div><h2>Il tuo archivio è vuoto</h2><p>Importa un file CRD o aggiungi il primo canto.</p></section>
+<section id="list" class="list"></section>
+<section id="viewer" class="viewer hidden">
+<button id="backBtn" class="back">‹ Archivio</button>
+<div class="viewerHead"><h2 id="songTitle"></h2><div class="actions"><button id="fontDown">A−</button><button id="fontUp">A＋</button><button id="transposeDown">−</button><span id="transposeLabel">0</span><button id="transposeUp">＋</button></div></div>
+<pre id="songText"></pre>
+</section>
+</main>
+<dialog id="addDialog"><form method="dialog" id="addForm"><h2>Nuovo canto</h2><input id="titleInput" required placeholder="Titolo"><textarea id="textInput" required placeholder="Inserisci testo e accordi"></textarea><div class="dialogActions"><button type="button" id="cancelAdd">Annulla</button><button type="submit">Salva canto</button></div></form></dialog>
+<script src="app.js"></script>
+</body></html>
