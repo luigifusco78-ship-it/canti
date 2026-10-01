@@ -46,3 +46,17 @@
     max-width: none;
   }
 }
+#songNote {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 260px;
+  min-width: 180px;
+  height: 38px;
+  box-sizing: border-box;
+  background: white;
+  color: #222;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
