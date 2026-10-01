@@ -1,1 +1,48 @@
 .titleNotes{display:flex;align-items:center;gap:10px;flex:1;min-width:240px}.titleNotes h2{flex:0 1 auto}.titleNotes input{min-width:120px;max-width:300px;flex:1;padding:9px 11px;font-size:14px}@media(max-width:600px){.titleNotes{width:100%;min-width:0;flex-wrap:wrap}.titleNotes h2{width:100%}.titleNotes input{max-width:none;width:100%}}
+.viewerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.titleNotes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.titleNotes h2 {
+  margin: 0;
+  flex: 0 1 auto;
+}
+
+.titleNotes input {
+  min-width: 120px;
+  max-width: 300px;
+  flex: 1;
+  padding: 9px 11px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .viewerHead {
+    align-items: flex-start;
+  }
+
+  .titleNotes {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .titleNotes h2,
+  .titleNotes input {
+    width: 100%;
+    max-width: none;
+  }
+}
