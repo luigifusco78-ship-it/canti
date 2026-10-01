@@ -1,5 +1,1 @@
-const CACHE="canti-v1";
-const ASSETS=["./","./index.html","./style.css","./app.js","./manifest.json"];
-self.addEventListener("install",event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
-self.addEventListener("activate",event=>event.waitUntil(self.clients.claim()));
-self.addEventListener("fetch",event=>{if(event.request.method!=="GET")return;event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).catch(()=>caches.match("./index.html"))))});
+const C="canti-v1.1";const A=["./","./index.html","./style.css","./app.js","./manifest.json"];self.addEventListener("install",e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A))));self.addEventListener("fetch",e=>{if(e.request.method==="GET")e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))})
