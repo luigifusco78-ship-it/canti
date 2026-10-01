@@ -1,4 +1,160 @@
-.titleNotes{display:flex;align-items:center;gap:10px;flex:1;min-width:240px}.titleNotes h2{flex:0 1 auto}.titleNotes input{min-width:120px;max-width:300px;flex:1;padding:9px 11px;font-size:14px}@media(max-width:600px){.titleNotes{width:100%;min-width:0;flex-wrap:wrap}.titleNotes h2{width:100%}.titleNotes input{max-width:none;width:100%}}
+
+:root {
+  color-scheme: light;
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --text: #172033;
+  --muted: #687386;
+  --accent: #315cba;
+  --line: #e1e6ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 16px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px max(20px, calc((100% - 980px) / 2));
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 16px;
+  background: #e8edf6;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(.98);
+}
+
+button:hover {
+  background: #dce5f3;
+}
+
+header button {
+  font-size: 22px;
+  min-width: 46px;
+}
+
+main {
+  width: min(100% - 32px, 980px);
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0 24px;
+}
+
+input, textarea {
+  font: inherit;
+}
+
+.toolbar input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+}
+
+.empty {
+  padding: 22px 0;
+}
+
+.empty .icon {
+  font-size: 30px;
+}
+
+.empty h2 {
+  margin: 12px 0 8px;
+  font-size: 23px;
+}
+
+.empty p {
+  color: var(--muted);
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.songMain {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.songTitle {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.songMeta {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.song > button {
+  padding: 8px 11px;
+}
+
+.viewer {
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.back {
+  margin-bottom: 16px;
+}
+
 .viewerHead {
   display: flex;
   align-items: center;
@@ -6,6 +162,7 @@
   gap: 16px;
   flex-wrap: wrap;
   width: 100%;
+  margin: 0 0 20px;
 }
 
 .titleNotes {
@@ -17,19 +174,117 @@
 }
 
 .titleNotes h2 {
-  margin: 0;
   flex: 0 1 auto;
+  margin: 0;
+  font-size: 23px;
 }
 
 .titleNotes input {
   min-width: 120px;
   max-width: 300px;
   flex: 1;
-  padding: 9px 11px;
+  padding: 10px 12px;
   font-size: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions button {
+  min-width: 42px;
+  padding: 10px 12px;
+}
+
+#transposeLabel {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 700;
+}
+
+#songText {
+  margin: 0;
+  padding: 24px;
+  min-height: 240px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+  font-family: ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--text);
+}
+
+dialog {
+  width: min(92%, 520px);
+  padding: 24px;
+  border: 0;
+  border-radius: 18px;
+  color: var(--text);
+  background: var(--card);
+  box-shadow: 0 20px 60px #17203333;
+}
+
+dialog::backdrop {
+  background: #10182788;
+}
+
+dialog h2 {
+  margin-top: 0;
+}
+
+#addForm {
+  display: grid;
+  gap: 14px;
+}
+
+#addForm input,
+#addForm textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--text);
+}
+
+#addForm textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 @media (max-width: 600px) {
+  header {
+    padding: 18px 16px;
+  }
+
+  main {
+    width: calc(100% - 24px);
+  }
+
+  .toolbar {
+    gap: 7px;
+  }
+
+  .toolbar button {
+    padding: 10px 12px;
+  }
+
   .viewerHead {
     align-items: flex-start;
   }
@@ -40,23 +295,22 @@
     flex-wrap: wrap;
   }
 
-  .titleNotes h2,
+  .titleNotes h2 {
+    width: 100%;
+  }
+
   .titleNotes input {
     width: 100%;
     max-width: none;
+    flex: 1 1 100%;
   }
-}
-#songNote {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 260px;
-  min-width: 180px;
-  height: 38px;
-  box-sizing: border-box;
-  background: white;
-  color: #222;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  padding: 8px 10px;
+
+  .actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  #songText {
+    padding: 16px;
+  }
 }
